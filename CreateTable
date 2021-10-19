@@ -6,12 +6,12 @@ create table if not exists author (
 create table if not exists album (
     id album primary key,
     date integer,
-    id_author integer references musicstore(id author)
+    id_author integer references author(id author)
     );
 
 create table if not exists track (
     id track primary key,
     date songtitle varchar(100),
     duration integer,
-    id_album integer references albume(id album),
+    id_album integer references album(id album),
     );
