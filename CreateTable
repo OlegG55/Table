@@ -15,3 +15,26 @@ create table if not exists track (
     duration integer,
     id_album integer references album(id album),
     );
+
+create table if not exists collection (
+    id collection primary key,
+    name collection varchar(100),
+    date integer
+);
+
+create table id not exists style (
+    id style primary key,
+    name style varchar(100)
+);
+
+create table if not exists Artist style(
+    id_author integer references author(id author),
+    id_style integer references album(id style),
+    constraint AS primary key (id_style, id_author)
+);
+
+create table if not exists track collection(
+    id_track integer references track(id track),
+    id_collection integer references collection(id collection),
+    constraint TC primary key (id_collection, id_track)
+);
