@@ -38,3 +38,10 @@ create table if not exists track collection(
     id_collection integer references collection(id collection),
     constraint TC primary key (id_collection, id_track)
 );
+
+create table if not exists author album(
+    id_author integer references author(id author),
+    id_album integer references album(id album),
+    constraint AA primary key (id_album, id_author)
+);
+
